@@ -1,0 +1,1159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 222 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --primary-50: 210 40% 98%;
+    --primary-100: 214 32% 91%;
+    --primary-200: 213 27% 84%;
+    --primary-300: 215 20% 65%;
+    --primary-400: 215 16% 47%;
+    --primary-500: 221 39% 31%;
+    --primary-600: 224 71% 28%;
+    --primary-700: 224 76% 24%;
+    --primary-800: 225 70% 20%;
+    --primary-900: 224 64% 15%;
+    --primary-950: 222 47% 11%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 224 71% 28%;
+    --radius: 0.5rem;
+
+    /* Sidebar specific colors */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 222 47% 11%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 224 71% 28%;
+  }
+
+  .dark {
+    /* Enhanced dark theme colors with a more sophisticated palette */
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+    --primary-50: 262 47% 4%;
+    --primary-100: 262 47% 8%;
+    --primary-200: 262 47% 12%;
+    --primary-300: 262 47% 16%;
+    --primary-400: 262 47% 24%;
+    --primary-500: 262 47% 32%;
+    --primary-600: 262 47% 48%;
+    --primary-700: 262 47% 64%;
+    --primary-800: 262 47% 80%;
+    --primary-900: 262 47% 90%;
+    --primary-950: 262 47% 96%;
+
+    --secondary: 222 47% 8%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 47% 8%;
+    --muted-foreground: 222 47% 65%;
+    --accent: 262 47% 12%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 47% 12%;
+    --input: 222 47% 12%;
+    --ring: 262 83% 58%;
+
+    /* Enhanced sidebar specific colors */
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 262 47% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 47% 12%;
+    --sidebar-ring: 262 83% 58%;
+
+    /* Enhanced status colors */
+    --status-active: 142 72% 29%;
+    --status-inactive: 262 83% 58%;
+    --status-medium: 38 92% 50%;
+    --status-high: 354 83% 57%;
+    --status-low: 222 47% 35%;
+    --status-custom: 262 83% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Improved sidebar transitions */
+.sidebar-transition {
+  transition: transform 0.3s ease, width 0.3s ease, opacity 0.3s ease;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .text-3xl {
+    font-size: 1.75rem;
+  }
+
+  .p-8 {
+    padding: 1.5rem;
+  }
+
+  .space-y-6 {
+    margin-top: 1.25rem;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improved focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Prevent content jumping during theme changes */
+html,
+body {
+  min-height: 100vh;
+}
+
+/* Improved table responsiveness */
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom tab styles */
+.tab-indicator {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Theme transition improvements */
+.theme-transition * {
+  transition-duration: 0.3s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Add these new styles at the end of the file */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)),
+    hsl(var(--primary) / 0.1),
+    hsl(var(--muted))
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+  min-height: 1.5rem;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Improved card hover effects */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+}
+
+.dark .card-glow {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.dark .card-glow:hover {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
+}
+
+.dark .gradient-border {
+  position: relative;
+  background: linear-gradient(
+    to right,
+    hsl(var(--primary) / 0.5),
+    hsl(var(--primary) / 0.2)
+  );
+  border-radius: var(--radius);
+  padding: 1px;
+}
+
+.dark .gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  padding: 1px;
+  background: linear-gradient(
+    45deg,
+    hsl(var(--primary) / 0.5),
+    hsl(var(--primary) / 0.2),
+    hsl(var(--primary) / 0.5)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Add these new animation keyframes */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+  }
+}
+
+.dark .pulse-effect {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Improved skeleton animation for dark mode */
+.dark .skeleton {
+  background-image: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(220 13% 20%) 50%, hsl(var(--muted)) 75%);
+}
+
+/* Status badge styles */
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark .status-badge {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.status-active {
+  background-color: hsl(var(--status-active));
+  color: white;
+}
+
+.status-inactive {
+  background-color: hsl(var(--status-inactive));
+  color: white;
+}
+
+.status-medium {
+  background-color: hsl(var(--status-medium));
+  color: black;
+}
+
+.status-low {
+  background-color: hsl(var(--status-low));
+  color: white;
+}
+
+.status-high {
+  background-color: hsl(var(--status-high));
+  color: white;
+}
+
+.status-custom {
+  background-color: hsl(var(--status-custom));
+  color: white;
+}
+
+/* Table styles */
+.modern-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.modern-table th {
+  color: hsl(var(--muted-foreground));
+  font-weight: 500;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.modern-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.modern-table tr:hover {
+  background-color: hsl(var(--secondary));
+}
+
+/* Modern input styles */
+.modern-input {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  color: hsl(var(--foreground));
+  width: 100%;
+}
+
+.modern-input:focus {
+  outline: none;
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 1px hsl(var(--primary));
+}
+
+.modern-input::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+
+/* Modern dropdown */
+.modern-dropdown {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  color: hsl(var(--foreground));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.modern-dropdown:hover {
+  background-color: hsl(var(--secondary));
+}
+
+/* Modern button */
+.modern-button {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.modern-button:hover {
+  opacity: 0.9;
+}
+
+.modern-button-secondary {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+}
+
+/* Modern pagination */
+.modern-pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.modern-pagination-item {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.modern-pagination-item:hover {
+  background-color: hsl(var(--secondary));
+}
+
+.modern-pagination-item.active {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.modern-pagination-item.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modern-pagination-item.disabled:hover {
+  background-color: transparent;
+}
+
+/* Modern card */
+.modern-card {
+  background-color: hsl(var(--card));
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--border));
+  overflow: hidden;
+}
+
+/* Modern header */
+.modern-header {
+  background-color: hsl(var(--card));
+  border-bottom: 1px solid hsl(var(--border));
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Modern avatar */
+.modern-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: hsl(var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: hsl(var(--secondary-foreground));
+}
+
+/* Modern notification */
+.modern-notification {
+  position: relative;
+}
+
+.modern-notification-badge {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add these new styles for enhanced UI */
+.enhanced-card {
+  transition: all 0.3s ease;
+  border: 1px solid hsl(var(--border));
+  background: linear-gradient(to bottom right, hsl(var(--card)), hsl(var(--card) / 0.8));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.dark .enhanced-card {
+  background: linear-gradient(
+    145deg,
+    hsl(var(--card)),
+    hsl(var(--card) / 0.8)
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(var(--border) / 0.1);
+}
+
+.enhanced-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.dark .enhanced-card:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced button styles */
+.enhanced-button {
+  background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary) / 0.8));
+  color: hsl(var(--primary-foreground));
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.enhanced-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(to right, hsl(var(--primary) / 0.9), hsl(var(--primary) / 0.7));
+}
+
+/* Hover sidebar styles */
+.sidebar-hover-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 100%;
+  z-index: 49;
+}
+
+/* Enhanced table styles */
+.enhanced-table tr {
+  transition: background-color 0.2s ease;
+}
+
+.enhanced-table tr:hover {
+  background-color: hsl(var(--secondary) / 0.7);
+}
+
+.dark .enhanced-table tr:hover {
+  background-color: hsl(var(--secondary) / 0.3);
+}
+
+/* Sidebar menu hover animations */
+.sidebar-menu-item {
+  transition: all 0.2s ease;
+}
+
+.sidebar-menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark .sidebar-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Submenu animation */
+.submenu-enter {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.submenu-enter-active {
+  max-height: 500px;
+  opacity: 1;
+  transition: max-height 0.3s ease, opacity 0.2s ease;
+}
+
+.submenu-exit {
+  max-height: 500px;
+  opacity: 1;
+  overflow: hidden;
+}
+
+.submenu-exit-active {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.2s ease;
+}
+
+/* Sidebar menu item hover effect */
+.menu-item-hover {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.menu-item-hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: hsl(var(--primary));
+  transition: width 0.2s ease;
+}
+
+.menu-item-hover:hover::after {
+  width: 100%;
+}
+
+/* Add these specific styles for article list tables at the end of the file */
+.article-table tr {
+  transition: none;
+}
+
+.article-table tr:hover {
+  background-color: transparent;
+}
+
+.article-table td {
+  transition: none;
+}
+
+/* Remove hover animations from submenu items */
+.submenu-item {
+  transition: none;
+}
+
+.submenu-item:hover {
+  background-color: transparent;
+}
+
+/* Fix sidebar UI */
+.sidebar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 50;
+  border-right: 1px solid hsl(var(--border));
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Improve sidebar toggle button */
+.sidebar-toggle {
+  position: absolute;
+  top: 1rem;
+  right: -12px;
+  width: 24px;
+  height: 24px;
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 60;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark .sidebar-toggle {
+  background-color: hsl(var(--card));
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Collapsed sidebar styles */
+.sidebar-collapsed {
+  width: 60px;
+}
+
+.sidebar-collapsed .sidebar-label {
+  display: none;
+}
+
+.sidebar-collapsed .sidebar-icon {
+  margin: 0 auto;
+}
+
+/* Center icons in collapsed sidebar */
+.sidebar-icon-center {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Chart styles */
+.chart-tooltip {
+  position: absolute;
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  z-index: 50;
+  font-size: 0.75rem;
+}
+
+.dark .chart-tooltip {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Chart grid lines */
+.chart-grid-line {
+  stroke: hsl(var(--border));
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+
+/* Chart axis labels */
+.chart-axis-label {
+  fill: hsl(var(--muted-foreground));
+  font-size: 0.75rem;
+}
+
+/* Chart bar hover effect */
+.chart-bar {
+  transition: opacity 0.2s ease;
+}
+
+.chart-bar:hover {
+  opacity: 0.8;
+}
+
+/* Stop colors for gradients */
+.stop-color-from-blue-500\/50 {
+  stop-color: hsl(222 83% 53% / 0.5);
+}
+
+.stop-color-to-blue-500\/10 {
+  stop-color: hsl(222 83% 53% / 0.1);
+}
+
+.stop-color-from-purple-500\/50 {
+  stop-color: hsl(262 83% 58% / 0.5);
+}
+
+.stop-color-to-purple-500\/10 {
+  stop-color: hsl(262 83% 58% / 0.1);
+}
+
+.stop-color-from-amber-500\/50 {
+  stop-color: hsl(38 92% 50% / 0.5);
+}
+
+.stop-color-to-amber-500\/10 {
+  stop-color: hsl(38 92% 50% / 0.1);
+}
+
+.stop-color-from-emerald-500\/50 {
+  stop-color: hsl(142 72% 29% / 0.5);
+}
+
+.stop-color-to-emerald-500\/10 {
+  stop-color: hsl(142 72% 29% / 0.1);
+}
+
+/* Loading animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(90deg, hsl(var(--card)) 0%, hsl(var(--muted)) 20%, hsl(var(--card)) 40%);
+  background-size: 200% 100%;
+}
+
+/* Improved focus rings */
+.focus-ring {
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.focus-ring:focus-visible {
+  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+}
+
+/* Improved badge styles */
+.badge-animated {
+  position: relative;
+  overflow: hidden;
+}
+
+.badge-animated::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: badge-shine 2s infinite;
+}
+
+@keyframes badge-shine {
+  100% {
+    left: 100%;
+  }
+}
+
+/* Improved button hover effects */
+.button-hover-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-hover-effect::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.button-hover-effect:hover::after {
+  width: 300%;
+  height: 300%;
+}
+
+/* Improved card styles */
+.card-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .card-glass {
+  background: linear-gradient(
+    145deg,
+    hsl(var(--card) / 0.8),
+    hsl(var(--card) / 0.6)
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(var(--border) / 0.1);
+}
+
+/* Improved table row hover */
+.table-row-hover {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.table-row-hover:hover {
+  background-color: hsl(var(--secondary));
+  transform: translateY(-1px);
+}
+
+/* Improved checkbox styles */
+.checkbox-fancy {
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.25rem;
+  border: 2px solid hsl(var(--border));
+  transition: all 0.2s ease;
+}
+
+.checkbox-fancy::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 0.125rem;
+  background-color: hsl(var(--primary));
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease;
+}
+
+.checkbox-fancy:checked {
+  border-color: hsl(var(--primary));
+}
+
+.checkbox-fancy:checked::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Improved dropdown menu animations */
+.dropdown-menu-animation-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.dropdown-menu-animation-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.1s ease, transform 0.1s ease;
+}
+
+.dropdown-menu-animation-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.dropdown-menu-animation-exit-active {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.1s ease, transform 0.1s ease;
+}
+
+/* Improved toast animations */
+.toast-animation-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.toast-animation-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast-animation-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.toast-animation-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Add smooth transitions for all interactive elements */
+.dark * {
+  transition: background-color 0.3s ease,
+              border-color 0.3s ease,
+              color 0.3s ease,
+              transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Enhanced scrollbar for dark theme */
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 8px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* Add subtle animations for interactive elements */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+  }
+}
+
+.dark .pulse-effect {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Enhanced focus styles for dark theme */
+.dark :focus-visible {
+  outline: 2px solid hsl(var(--primary) / 0.5);
+  outline-offset: 2px;
+}
+
+/* Add glass effect for cards in dark theme */
+.dark .card-glass {
+  background: linear-gradient(
+    145deg,
+    hsl(var(--card) / 0.8),
+    hsl(var(--card) / 0.6)
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(var(--border) / 0.1);
+}
+
+/* Enhanced table styles for dark theme */
+.dark .table-row-hover:hover {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary) / 0.1),
+    hsl(var(--primary) / 0.05)
+  );
+}
+
+/* Add shimmer effect for loading states */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.dark .animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)),
+    hsl(var(--primary) / 0.1),
+    hsl(var(--muted))
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Traffic Sources Chart Enhancements */
+.dark .dashboard-card {
+  background: linear-gradient(135deg, hsl(var(--card) / 0.98), hsl(var(--card) / 0.90));
+  box-shadow: 0 4px 32px 0 rgba(80, 80, 180, 0.10), 0 1.5px 4px 0 rgba(80, 80, 180, 0.10);
+  border: 1px solid hsl(var(--border) / 0.15);
+  border-radius: 1.25rem;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.dark .dashboard-card:hover {
+  box-shadow: 0 8px 40px 0 rgba(80, 80, 180, 0.18), 0 2px 8px 0 rgba(80, 80, 180, 0.12);
+  border-color: hsl(var(--primary) / 0.3);
+}
+
+.dark .dashboard-title {
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.dark .dashboard-chart-glow {
+  filter: drop-shadow(0 0 32px hsl(var(--primary) / 0.18));
+  border-radius: 1rem;
+  background: radial-gradient(ellipse at 60% 40%, hsl(var(--primary) / 0.08) 0%, transparent 80%);
+}
+
+.dark .dashboard-legend-badge {
+  background: linear-gradient(135deg, hsl(var(--card) / 0.7), hsl(var(--primary) / 0.15));
+  border: 1.5px solid hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 2px 8px 0 rgba(80, 80, 180, 0.10);
+  border-radius: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.dark .dashboard-legend-badge:hover {
+  border-color: hsl(var(--primary) / 0.5);
+  box-shadow: 0 4px 16px 0 hsl(var(--primary) / 0.15);
+}
+
+/* Tooltip improvements */
+.dark .recharts-tooltip-wrapper .rounded-lg {
+  background: linear-gradient(135deg, hsl(var(--card)), hsl(var(--card) / 0.85));
+  color: #fff;
+  border: 1px solid hsl(var(--primary) / 0.2);
+  box-shadow: 0 4px 24px hsl(var(--primary) / 0.10);
+}
+
+/* Bar improvements */
+.dark .recharts-bar-rectangle {
+  filter: drop-shadow(0 2px 8px hsl(var(--primary) / 0.10));
+  transition: filter 0.2s;
+}
+.dark .recharts-bar-rectangle:hover {
+  filter: drop-shadow(0 4px 16px hsl(var(--primary) / 0.18));
+}
+
+/* Make axis numbers and period labels pop in dark mode */
+.dark .recharts-cartesian-axis-tick-value,
+.dark .recharts-yAxis .recharts-cartesian-axis-tick-value,
+.dark .recharts-xAxis .recharts-cartesian-axis-tick-value {
+  fill: #fff !important;
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.dark .dashboard-period-btn {
+  color: #fff !important;
+  font-weight: 600;
+  background: rgba(139,92,246,0.08);
+  border: 1.5px solid hsl(var(--primary));
+  box-shadow: 0 2px 8px 0 hsl(var(--primary) / 0.10);
+  border-radius: 0.75rem;
+  padding: 0.5rem 1.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.dark .dashboard-period-btn:hover {
+  border-color: hsl(var(--primary) / 0.5);
+  background: rgba(139,92,246,0.15);
+}
